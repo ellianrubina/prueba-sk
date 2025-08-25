@@ -1,0 +1,416 @@
+/* ======================= VARIABLES Y ESTILOS BASE ======================= */
+:root {
+    --color-primary: #0c7242; /* Verde: 60% */
+    --color-secondary: #e46228; /* Naranja: 30% */
+    --color-background: #ffffff; /* Blanco: 10% */
+    --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-sans);
+    line-height: 1.6;
+    background-color: var(--color-background);
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ======================= ENCABEZADO ======================= */
+#header {
+    background-color: var(--color-background);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+#header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--color-secondary);
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--color-primary);
+}
+
+/* ======================= SECCIONES COMUNES ======================= */
+section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3em;
+    color: var(--color-primary);
+}
+
+h2 {
+    font-size: 2.5em;
+    color: var(--color-primary);
+}
+
+p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-secondary);
+    color: var(--color-background);
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #d15623;
+    transform: translateY(-3px);
+}
+
+/* ======================= SECCIÓN HERO ======================= */
+.hero {
+    background: linear-gradient(rgba(12, 114, 66, 0.8), rgba(12, 114, 66, 0.8)), url('https://via.placeholder.com/1920x1080/0c7242/ffffff?text=Super+Kapi+Hero') no-repeat center center/cover;
+    color: var(--color-background);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 60px; /* Para compensar el encabezado fijo */
+}
+
+.hero h1 {
+    color: var(--color-background);
+}
+
+.hero p {
+    color: var(--color-background);
+}
+
+/* ======================= SECCIÓN DE PRODUCTOS ======================= */
+.productos {
+    background-color: #f8f9fa;
+}
+
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.producto-card {
+    background-color: var(--color-background);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.producto-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.producto-card h3 {
+    font-size: 1.4em;
+    color: var(--color-primary);
+    margin: 10px 0;
+}
+
+.precio {
+    font-size: 1.2em;
+    color: var(--color-secondary);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.add-to-cart-button {
+    background-color: var(--color-secondary);
+    color: var(--color-background);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+    background-color: #d15623;
+}
+
+/* ======================= SECCIÓN SOBRE NOSOTROS ======================= */
+.about .container {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+    text-align: left;
+}
+
+.about-content, .about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* ======================= SECCIÓN DE TESTIMONIOS ======================= */
+.testimonials {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+.testimonials h2 {
+    color: var(--color-background);
+}
+
+.testimonial-carousel {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    flex-wrap: wrap; /* Para responsividad */
+}
+
+.testimonial-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 400px;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: var(--color-background);
+}
+
+.testimonial-card .author {
+    font-weight: bold;
+    color: var(--color-secondary);
+}
+
+/* ======================= SECCIÓN DE CONTACTO ======================= */
+.contact {
+    background-color: #f8f9fa;
+}
+
+#contactForm {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+}
+
+/* ======================= PIE DE PÁGINA ======================= */
+footer {
+    background-color: #333;
+    color: var(--color-background);
+    padding: 50px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    text-align: left;
+}
+
+.footer-section h3 {
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    color: var(--color-background);
+    font-size: 1.5em;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--color-secondary);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li a {
+    color: var(--color-background);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section li a:hover {
+    color: var(--color-secondary);
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+/* ======================= ANIMACIONES ======================= */
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+.slide-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ======================= RESPONSIVIDAD ======================= */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        background-color: var(--color-background);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+
+    .about .container {
+        flex-direction: column;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+}
