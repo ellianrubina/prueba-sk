@@ -3,815 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Kapi - Tu Supermercado Online</title>
-    <meta name="description" content="Super Kapi: tu mercado online con delivery rápido. Productos frescos, ofertas exclusivas y la mejor calidad garantizada.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        /* Variables de colores y estilos base */
-        :root {
-            --verde: #0c7242;
-            --naranja: #e46228;
-            --blanco: #ffffff;
-            --gris-claro: #f5f5f5;
-            --gris-oscuro: #333333;
-            --sombra: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Open Sans', sans-serif;
-            color: var(--gris-oscuro);
-            line-height: 1.6;
-            padding-top: 80px;
-            background-color: var(--blanco);
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--verde);
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--naranja);
-            color: var(--blanco);
-            padding: 12px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        
-        .btn:hover {
-            background-color: #c9521f;
-            transform: translateY(-3px);
-            box-shadow: var(--sombra);
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-        
-        .section-title:after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: var(--naranja);
-            margin: 15px auto 0;
-            border-radius: 2px;
-        }
-        
-        /* Header */
-        header {
-            background-color: var(--blanco);
-            box-shadow: var(--sombra);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 15px 0;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo h1 {
-            font-size: 28px;
-            margin: 0;
-            color: var(--verde);
-        }
-        
-        .logo span {
-            color: var(--naranja);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: var(--gris-oscuro);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        nav ul li a:hover {
-            color: var(--naranja);
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: var(--verde);
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(12, 114, 66, 0.8), rgba(12, 114, 66, 0.8)), url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-            color: var(--blanco);
-            text-align: center;
-            padding: 120px 0;
-        }
-        
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--blanco);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        
-        /* Productos Destacados */
-        .productos {
-            background-color: var(--gris-claro);
-        }
-        
-        .productos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .producto-card {
-            background-color: var(--blanco);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--sombra);
-            transition: transform 0.3s ease;
-        }
-        
-        .producto-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .producto-img {
-            height: 200px;
-            background-color: #f9f9f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        
-        .producto-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .producto-card:hover .producto-img img {
-            transform: scale(1.1);
-        }
-        
-        .producto-info {
-            padding: 20px;
-        }
-        
-        .producto-info h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        
-        .producto-precio {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--naranja);
-            margin-bottom: 15px;
-        }
-        
-        .add-to-cart {
-            width: 100%;
-            text-align: center;
-        }
-        
-        /* Sobre Nosotros */
-        .sobre-nosotros {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        
-        .sobre-img {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--sombra);
-        }
-        
-        .sobre-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .sobre-content {
-            flex: 1;
-        }
-        
-        /* Testimonios */
-        .testimonios {
-            background-color: var(--gris-claro);
-            text-align: center;
-        }
-        
-        .testimonios-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .testimonio {
-            background-color: var(--blanco);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: var(--sombra);
-            margin: 0 20px;
-            display: none;
-        }
-        
-        .testimonio.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .testimonio-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            position: relative;
-            padding: 0 20px;
-        }
-        
-        .testimonio-text:before,
-        .testimonio-text:after {
-            content: '"';
-            font-size: 50px;
-            color: var(--naranja);
-            opacity: 0.2;
-            position: absolute;
-        }
-        
-        .testimonio-text:before {
-            left: -10px;
-            top: -20px;
-        }
-        
-        .testimonio-text:after {
-            right: -10px;
-            bottom: -40px;
-        }
-        
-        .testimonio-cliente {
-            font-weight: 600;
-            color: var(--verde);
-        }
-        
-        .testimonios-controls {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .testimonios-controls button {
-            background: none;
-            border: none;
-            font-size: 18px;
-            color: var(--verde);
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-        
-        .testimonios-controls button:hover {
-            color: var(--naranja);
-        }
-        
-        /* Contacto */
-        .contacto-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: var(--blanco);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: var(--sombra);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 16px;
-        }
-        
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--verde);
-            color: var(--blanco);
-            padding: 60px 0 30px;
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-logo h2 {
-            color: var(--blanco);
-            margin-bottom: 20px;
-        }
-        
-        .footer-links h3,
-        .footer-contact h3,
-        .footer-social h3 {
-            color: var(--blanco);
-            margin-bottom: 20px;
-            font-size: 18px;
-        }
-        
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links ul li a {
-            color: var(--blanco);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links ul li a:hover {
-            color: var(--naranja);
-        }
-        
-        .footer-contact p {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .footer-contact i {
-            margin-right: 10px;
-            color: var(--naranja);
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--blanco);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .social-icons a:hover {
-            background-color: var(--naranja);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Animaciones al hacer scroll */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Responsive */
-        @media (max-width: 992px) {
-            .sobre-nosotros {
-                flex-direction: column;
-            }
-            
-            .sobre-img {
-                margin-bottom: 30px;
-            }
-            
-            .hero h2 {
-                font-size: 2.5rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            body {
-                padding-top: 70px;
-            }
-            
-            nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background-color: var(--blanco);
-                box-shadow: var(--sombra);
-                padding: 20px;
-            }
-            
-            nav ul.show {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 10px 0;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            section {
-                padding: 60px 0;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero {
-                padding: 80px 0;
-            }
-            
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            
-            .btn {
-                padding: 10px 20px;
-                font-size: 14px;
-            }
-            
-            .contacto-form {
-                padding: 20px;
-            }
-        }
-    </style>
+    <meta name="description" content="Super Kapi: tu supermercado online con los mejores productos frescos y delivery rápido. ¡Calidad y frescura a un clic de distancia!">
+    <title>Super Kapi: Tu Mercado Online, A un Clic de Distancia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-b3/css/all.min.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
+
+    <header id="header">
+        <div class="container">
             <div class="logo">
-                <h1>Super <span>Kapi</span></h1>
+                <img src="https://via.placeholder.com/150x50/0c7242/ffffff?text=Super+Kapi" alt="Logotipo Super Kapi">
             </div>
-            <nav>
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
+            <nav class="nav-menu">
                 <ul>
-                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#hero">Inicio</a></li>
                     <li><a href="#productos">Productos</a></li>
                     <li><a href="#ofertas">Ofertas</a></li>
-                    <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#about">Sobre Nosotros</a></li>
                     <li><a href="#blog">Blog</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
+            <div class="menu-toggle" aria-label="Abrir menú de navegación">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="inicio">
+    <section id="hero" class="hero">
         <div class="container">
-            <h2>Super Kapi: Tu Mercado Online, A un Clic de Distancia</h2>
-            <p>Disfruta de los mejores productos frescos y de calidad con delivery rápido a tu domicilio. ¡Hacemos tu vida más fácil!</p>
-            <a href="#productos" class="btn">Comprar Ahora</a>
+            <div class="hero-content">
+                <h1>Super Kapi: Tu Mercado Online, A un Clic de Distancia</h1>
+                <p>Realiza tu compra online de forma rápida y sencilla. ¡Recibe tus productos frescos directamente en tu hogar con nuestro delivery express!</p>
+                <a href="#productos" class="cta-button">Comprar Ahora</a>
+            </div>
         </div>
     </section>
 
-    <!-- Productos Destacados -->
-    <section class="productos" id="productos">
+    <section id="productos" class="productos">
         <div class="container">
-            <h2 class="section-title">Productos Destacados</h2>
+            <h2>Nuestros Productos Destacados</h2>
             <div class="productos-grid">
-                <!-- Producto 1 -->
-                <div class="producto-card fade-in">
-                    <div class="producto-img">
-                        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Frutas frescas">
-                    </div>
-                    <div class="producto-info">
-                        <h3>Frutas Frescas</h3>
-                        <p class="producto-precio">$4.99</p>
-                        <button class="btn add-to-cart">Agregar al Carrito</button>
-                    </div>
+                <div class="producto-card" data-animation="fade-in">
+                    <img src="https://via.placeholder.com/300x200/e46228/ffffff?text=Fresas" alt="Fresas frescas">
+                    <h3>Fresas Orgánicas</h3>
+                    <p class="precio">$3.50</p>
+                    <button class="add-to-cart-button">Añadir al Carrito</button>
                 </div>
-                
-                <!-- Producto 2 -->
-                <div class="producto-card fade-in">
-                    <div class="producto-img">
-                        <img src="https://images.unsplash.com/photo-1548943487-a2e4e43b6253?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Verduras orgánicas">
-                    </div>
-                    <div class="producto-info">
-                        <h3>Verduras Orgánicas</h3>
-                        <p class="producto-precio">$3.99</p>
-                        <button class="btn add-to-cart">Agregar al Carrito</button>
-                    </div>
+                <div class="producto-card" data-animation="fade-in">
+                    <img src="https://via.placeholder.com/300x200/e46228/ffffff?text=Aguacate" alt="Aguacate">
+                    <h3>Aguacate Hass</h3>
+                    <p class="precio">$2.00</p>
+                    <button class="add-to-cart-button">Añadir al Carrito</button>
                 </div>
-                
-                <!-- Producto 3 -->
-                <div class="producto-card fade-in">
-                    <div class="producto-img">
-                        <img src="https://images.unsplash.com/photo-1553452118-621e1f860f43?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Carnes seleccionadas">
-                    </div>
-                    <div class="producto-info">
-                        <h3>Carnes Seleccionadas</h3>
-                        <p class="producto-precio">$12.99</p>
-                        <button class="btn add-to-cart">Agregar al Carrito</button>
-                    </div>
-                </div>
-                
-                <!-- Producto 4 -->
-                <div class="producto-card fade-in">
-                    <div class="producto-img">
-                        <img src="https://images.unsplash.com/photo-1559715541-5dae8e2d8c42?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Productos lácteos">
-                    </div>
-                    <div class="producto-info">
-                        <h3>Lácteos Frescos</h3>
-                        <p class="producto-precio">$2.99</p>
-                        <button class="btn add-to-cart">Agregar al Carrito</button>
-                    </div>
+                <div class="producto-card" data-animation="fade-in">
+                    <img src="https://via.placeholder.com/300x200/e46228/ffffff?text=Leche" alt="Leche">
+                    <h3>Leche Fresca</h3>
+                    <p class="precio">$1.80</p>
+                    <button class="add-to-cart-button">Añadir al Carrito</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sobre Nosotros -->
-    <section class="sobre" id="sobre-nosotros">
+    <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">Sobre Nosotros</h2>
-            <div class="sobre-nosotros">
-                <div class="sobre-img fade-in">
-                    <img src="https://images.unsplash.com/photo-1566842600175-97dca3dfc3c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Equipo de Super Kapi">
-                </div>
-                <div class="sobre-content fade-in">
-                    <h3>Nuestra Misión</h3>
-                    <p>En Super Kapi nos dedicamos a hacer tu vida más fácil llevando los mejores productos directamente a tu puerta. Nuestra misión es proporcionar alimentos frescos y de alta calidad con un servicio excepcional.</p>
-                    <p>Fundado en 2010, Super Kapi comenzó como una pequeña tienda local y hoy somos el supermercado online de confianza para miles de familias. Valoramos la frescura, la calidad y el servicio al cliente.</p>
-                    <p>Nuestro equipo de compras selecciona cuidadosamente cada producto para garantizar que recibas solo lo mejor. Trabajamos directamente con productores locales para apoyar a nuestra comunidad y reducir nuestra huella de carbono.</p>
-                </div>
+            <div class="about-content" data-animation="slide-up">
+                <h2>Sobre Super Kapi</h2>
+                <p>Nuestra misión es llevar la frescura y la calidad de los mejores productos del mercado directamente a tu hogar. Creemos en un servicio rápido, un trato amable y productos que superen tus expectativas. ¡Con cada compra en Super Kapi, te aseguras de recibir lo mejor!</p>
+            </div>
+            <div class="about-image" data-animation="slide-up">
+                <img src="https://via.placeholder.com/500x350/0c7242/ffffff?text=Nuestro+Equipo" alt="Equipo de Super Kapi">
             </div>
         </div>
     </section>
 
-    <!-- Testimonios -->
-    <section class="testimonios">
+    <section id="testimonials" class="testimonials">
         <div class="container">
-            <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
-            <div class="testimonios-container">
-                <!-- Testimonio 1 -->
-                <div class="testimonio active">
-                    <p class="testimonio-text">Super Kapi ha cambiado mi forma de comprar. Los productos siempre frescos y el delivery súper rápido. ¡No podría estar más satisfecha!</p>
-                    <p class="testimonio-cliente">- María González</p>
+            <h2>Opiniones de Nuestros Clientes</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-card" data-animation="fade-in">
+                    <p>"¡El servicio de Super Kapi es increíble! Los productos son de primera calidad y el delivery es rapidísimo. 100% recomendado."</p>
+                    <p class="author">- Ana Gómez</p>
                 </div>
-                
-                <!-- Testimonio 2 -->
-                <div class="testimonio">
-                    <p class="testimonio-text">La calidad de sus productos es excepcional. Me encanta que apoyen a productores locales. ¡Recomendado 100%!</p>
-                    <p class="testimonio-cliente">- Carlos Mendoza</p>
-                </div>
-                
-                <!-- Testimonio 3 -->
-                <div class="testimonio">
-                    <p class="testimonio-text">El servicio al cliente es excelente. Tuve un problema con mi pedido y lo resolvieron inmediatamente. Ahora soy cliente fiel.</p>
-                    <p class="testimonio-cliente">- Laura Rodríguez</p>
-                </div>
-                
-                <div class="testimonios-controls">
-                    <button id="prev-testimonio"><i class="fas fa-chevron-left"></i></button>
-                    <button id="next-testimonio"><i class="fas fa-chevron-right"></i></button>
+                <div class="testimonial-card" data-animation="fade-in">
+                    <p>"Me encanta la frescura de las frutas y verduras. Super Kapi se ha convertido en mi supermercado online de confianza."</p>
+                    <p class="author">- Carlos Pérez</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contacto -->
-    <section class="contacto" id="contacto">
+    <section id="contacto" class="contact">
         <div class="container">
-            <h2 class="section-title">Contacto</h2>
-            <div class="contacto-form fade-in">
-                <form id="formulario-contacto">
-                    <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="mensaje">Mensaje</label>
-                        <textarea id="mensaje" name="mensaje" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Enviar Mensaje</button>
-                </form>
-            </div>
+            <h2>Contáctanos</h2>
+            <form id="contactForm">
+                <div class="form-group" data-animation="slide-up">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group" data-animation="slide-up">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group" data-animation="slide-up">
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="cta-button">Enviar Mensaje</button>
+            </form>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-container">
-                <div class="footer-logo">
-                    <h2>Super <span>Kapi</span></h2>
-                    <p>Tu mercado online de confianza, llevando calidad a tu hogar desde 2010.</p>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Enlaces Rápidos</h3>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#productos">Productos</a></li>
-                        <li><a href="#ofertas">Ofertas</a></li>
-                        <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact">
-                    <h3>Contacto</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Av. Principal 123, Ciudad</p>
-                    <p><i class="fas fa-phone"></i> (123) 456-7890</p>
-                    <p><i class="fas fa-envelope"></i> info@superkapi.com</p>
-                </div>
-                
-                <div class="footer-social">
+            <div class="footer-content">
+                <div class="footer-section">
                     <h3>Síguenos</h3>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#about">Sobre Nosotros</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
             </div>
-            
-            <div class="copyright">
-                <p>&copy; 2023 Super Kapi. Todos los derechos reservados.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Super Kapi. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
-
-    <script>
-        // Menu móvil
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('show');
-        });
-        
-        // Testimonios carousel
-        const testimonios = document.querySelectorAll('.testimonio');
-        const prevBtn = document.getElementById('prev-testimonio');
-        const nextBtn = document.getElementById('next-testimonio');
-        let currentTestimonio = 0;
-        
-        function showTestimonio(index) {
-            testimonios.forEach(testimonio => testimonio.classList.remove('active'));
-            testimonios[index].classList.add('active');
-        }
-        
-        nextBtn.addEventListener('click', function() {
-            currentTestimonio = (currentTestimonio + 1) % testimonios.length;
-            showTestimonio(currentTestimonio);
-        });
-        
-        prevBtn.addEventListener('click', function() {
-            currentTestimonio = (currentTestimonio - 1 + testimonios.length) % testimonios.length;
-            showTestimonio(currentTestimonio);
-        });
-        
-        // Animación al hacer scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        function checkFade() {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('visible');
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', checkFade);
-        window.addEventListener('load', checkFade);
-        
-        // Formulario de contacto
-        document.getElementById('formulario-contacto').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
-            this.reset();
-        });
-        
-        // Agregar al carrito
-        const addToCartButtons = document.querySelectorAll('.add-to-cart');
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const productName = this.parentElement.querySelector('h3').textContent;
-                alert(`¡${productName} agregado al carrito!`);
-            });
-        });
-    </script>
+    
 </body>
 </html>
