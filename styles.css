@@ -49,7 +49,7 @@ body {
 
 .logo img {
     height: 200px;
-    width: auto; /* Mantendrá la proporción original de la imagen */
+    width: auto;
 }
 
 .nav-menu ul {
