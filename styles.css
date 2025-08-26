@@ -48,7 +48,8 @@ body {
 }
 
 .logo img {
-    height: 50px;
+    height: 200px;
+    width: auto; /* Mantendrá la proporción original de la imagen */
 }
 
 .nav-menu ul {
