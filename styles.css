@@ -48,8 +48,10 @@ body {
 }
 
 .logo img {
-    height: 200px;
+    height: 100px;
     width: auto;
+    margin-top: 10px; 
+    margin-bottom: 10px;
 }
 
 .nav-menu ul {
