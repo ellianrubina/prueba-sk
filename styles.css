@@ -122,7 +122,7 @@ p {
 
 /* ======================= SECCIÓN HERO ======================= */
 .hero {
-    background: linear-gradient(rgba(12, 114, 66, 0.8), rgba(12, 114, 66, 0.8)), url('https://via.placeholder.com/1920x1080/0c7242/ffffff?text=Super+Kapi+Hero') no-repeat center center/cover;
+    background: linear-gradient(rgba(12, 114, 66, 0.5), rgba(12, 114, 66, 0.8)), url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
     color: var(--color-background);
     height: 100vh;
     display: flex;
